@@ -10,9 +10,21 @@ repositories {
 }
 
 dependencies {
+    // teste unitário
     testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
+    // teste api
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
+    // teste selenium
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+
+
 }
 
 test{
     useTestNG()
+    filter{
+        excludeTestsMatching "*apiTests*"
+        excludeTestsMatching "*unitTests*"
+    }
+
 }
